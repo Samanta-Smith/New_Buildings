@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>New Buildings</title>
+</head>
+<body>
+  <center>
+  <form method="POST" action="http://127.0.0.1:8000/building/">
+  {% csrf_token %}
+  {{ HouseForm }}
+  <input type="submit" value="Создать дом."  >
+  </form>
+  </center>
+  <hr>
+   {% for h in houses %}
+   <p>Адресс:{{h.address}}</p>
+   <p>Год постройки:{{h.year}}</p>
+   <p>Количество кирпичей:{{h.hous.num}}</p>
+   <hr>
+   {% endfor%}
