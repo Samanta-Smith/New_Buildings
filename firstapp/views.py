@@ -16,10 +16,10 @@ def new(request):
         bricks.house = house
         bricks.save()
     return HttpResponseRedirect("/")
-def add(request,id):
+def add(request,id,n=0):
     house = House.objects.get(pk=id)
     bri = Brick.objects.get(house=house)
-    bri.num +=10
+    bri.num +=n
     bri.save()
     return HttpResponseRedirect("/")
 def stats(request):
